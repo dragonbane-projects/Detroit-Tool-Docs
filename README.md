@@ -4,7 +4,7 @@
 Make sure you put the tool somewhere safe and where you have space to work on textures. Enter your game directory like this: 
 ![Tool Overview](Images/Overview.png)
 
-This tool follows the AddOn flow that is explained here: [AddOn Overview](https://github.com/dragonbane-projects/Detroit-Tool-Docs/blob/mod-addOnOnly/AddOn%20Overview.md)
+This tool follows the AddOn flow that is explained here: [AddOn Overview](https://github.com/dragonbane-projects/Detroit-Tool-Docs/blob/mod-addOnOnly/AddOn%20Overview.md)  
 The benefit of using that system is that the vanilla game files remain untouched. And that you can have multiple AddOns around that e.g. mod Connor, so you could have an Addon called Connor_WhiteHair and Connor_RedHair for example. Of course you can't have both of them active at the same time, but you can easily switch between them, which is a great bonus. AddOns can be easily shared with people too and they can be quickly removed, disabled or re-enabled.
 
 ### Overview
@@ -23,7 +23,7 @@ Then if you later want to make adjustments, ensure you load your model from the 
 After you load a model the list will show the list of shaders, with best guessed names (which can be wrong if I haven't tested the model that well). If you want to rename these entries, you can do so after loading a model once. You find the names in the _modelCache folder where the app .exe is. You can rename these entries however you want if my tool does a mistake or just because you prefer a different name for a shader. 
 
 ### Export
-All textures in Detroit are driven by shaders, so that's the central link. You can either select one e.g. "Head" and then hit **Export** or **Export All** to get them all. It will extract the shader and all the used textures by said shader. Exported original models appear in an "Export/_Original" folder (next to where the app .exe is) to separate them from AddOn models you can also extract if you for whatever reason need your modded files back from that and dont have your originals anymore (extracted AddOn models appear in an "Export/<\AddOnName\>" folder).
+All textures in Detroit are driven by shaders, so that's the central link. You can either select one e.g. "Head" and then hit **Export** or **Export All** to get them all. It will extract the shader and all the used textures by said shader. Exported original models appear in an "Export/_Original" folder (next to where the app .exe is) to separate them from AddOn models you can also extract if you for whatever reason need your modded files back from that and dont have your originals anymore (extracted AddOn models appear in an "Export/<AddOnName>" folder).
 
 You can extract textures either in the DDS format or in the KTX2 format. DDS is obviously more widely supported, KTX2 is specifically for Vulkan and supports some additional nuances DDS doesn't, which is only relevant for some nieche formats, but nevertheless I made it an option (explanation for that format here: [KTX2 Explanation](https://doc.babylonjs.com/features/featuresDeepDive/materials/using/ktx2Compression)).
 The NVIDIA Texture Tool can display and generate both DDS and KTX2.
