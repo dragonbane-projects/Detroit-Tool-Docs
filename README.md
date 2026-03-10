@@ -23,7 +23,7 @@ Then if you later want to make adjustments, ensure you load your model from the 
 After you load a model the list will show the list of shaders, with best guessed names (which can be wrong if I haven't tested the model that well). If you want to rename these entries, you can do so after loading a model once. You find the names in the _modelCache folder where the app .exe is. You can rename these entries however you want if my tool does a mistake or just because you prefer a different name for a shader. 
 
 ### Export
-All textures in Detroit are driven by shaders, so that's the central link. You can either select one e.g. "Head" and then hit **Export** or **Export All** to get them all. It will extract the shader and all the used textures by said shader. Exported original models appear in an "Export/_Original" folder (next to where the app .exe is) to separate them from AddOn models you can also extract if you for whatever reason need your modded files back from that and dont have your originals anymore (extracted AddOn models appear in an "Export/<AddOnName>" folder).
+All textures in Detroit are driven by shaders, so that's the central link. You can either select one e.g. "Head" and then hit **Export** or **Export All** to get them all. It will extract the shader and all the used textures by said shader. Exported original models appear in an "Export/_Original" folder (next to where the app .exe is) to separate them from AddOn models you can also extract if you for whatever reason need your modded files back from that and dont have your originals anymore (extracted AddOn models appear in an "Export/\<AddOnName\>" folder).
 
 You can extract textures either in the DDS format or in the KTX2 format. DDS is obviously more widely supported, KTX2 is specifically for Vulkan and supports some additional nuances DDS doesn't, which is only relevant for some nieche formats, but nevertheless I made it an option (explanation for that format here: [KTX2 Explanation](https://doc.babylonjs.com/features/featuresDeepDive/materials/using/ktx2Compression)).
 The NVIDIA Texture Tool can display and generate both DDS and KTX2.
@@ -36,6 +36,18 @@ That's about all that is important, otherwise you can edit textures however you 
 
 ### Import
 To import a texture drag the DDS/KTX2 or the same named JSON file onto the Import bar and hit **Import**. This file is then imported into your AddOn. There is no issue with shared textures between characters, so nothing you need to watch out for in particular when doing this.
+
+### Real Time Editing
+Textures and shaders can be edited and previewed in nearly real time if you happen to have my Ingame Mod Menu at a high enough tier level to have the **Model Showroom** feature included. Read up how that feature works here: [Model Showroom](https://github.com/dragonbane-projects/Detroit-Tool-Docs/blob/mod-menu-creator/2.%20Readme%20Mod%20Menu.md#model-showroom).
+
+Once you are in this special development environment and have your target character spawned, you can hot reload any textures/shaders you import. To that end the character will pull data from a special AddOn. To import into this AddOn from within the Model Editor, you need to check the **Dev Mode** checkbox. This option will be greyed out unless you either have an original model loaded or loaded a model from an AddOn. Freshly created AddOns with no model imported yet are not supported.
+
+Once checked, the currently loaded AddOn or original model is mirrored into the special Dev AddOn. Any imports you now perform **only** apply to this special AddOn. Any change you make can be instantly previewed after by reloading the character in the Model Showroom. I recommend combining this with the **Auto Watch** checkbox, as with that you only need to export your texture in your image program of choice and a single press of F5 in the game will show your change.
+
+If you want to persist your changes to your actual selected AddOn, simply uncheck **Dev Mode** again. If changes were made the tool will then prompt if you wish to mirror the Dev AddOn back to your actual AddOn or discard any changes made. As such you can also use the Dev Mode as a sandbox to break things in. If you have an original model loaded, leaving Dev Mode will always discard all changes.
+
+> [!CAUTION]
+Hot reloading AddOns ***can*** be unstable. It is possible that entering Dev Mode and first reloading a model will crash the game. After you restart the game, it should now be stable for this current model. Likewise, after you are done in the Model Showroom, I recommend always rebooting the game. If you did any changes to your actual AddOn and it is currently enabled, it will most likely crash the game when you hit a chapter where it gets used until you reboot the game.
 
 
 ### Other Tool Features
